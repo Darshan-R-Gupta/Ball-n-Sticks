@@ -54,19 +54,18 @@ void Game::UpdateModel()
 		else { racket1x = 55; }
 	}
 	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) {
-		if (racket1x <= 395 - racket_width)	racket1x += 3;
+		if (racket1x <= (395 - racket_width))	racket1x += 3;
 		else { racket1x = 395 - racket_width; }
 	}
 	if (wnd.kbd.KeyIsPressed(VK_UP)) {
-		if(racket1y >= 55 + racket_height) racket1y -= 3;
+		if(racket1y >= (55 + racket_height)) racket1y -= 3;
 		else racket1y = 55;
 	}
 	if (wnd.kbd.KeyIsPressed(VK_DOWN)) {
-		if(racket1y <= 545 - racket_height) racket1y += 3;
+		if(racket1y <= (545 - racket_height)) racket1y += 3;
 		else racket1y = 545- racket_height;
 	}
-	if (isracket1Colliding(racket1x, racket1y, racket_width, racket_height,
-		ballx, bally, ball_width, ball_height, ballvx, ballvy)) {
+	if (isracket1Colliding(racket1x,racket1y,racket_width,racket_height, ballx, bally,ball_width, ball_height, ballvx, ballvy) ) {
 		collided = true;
 		
 	}
@@ -828,7 +827,6 @@ bool Game::isracket1Colliding(int x, int y, int width, int height, int x1, int y
 
 				}
 				if (y1 != oldy) {
-					vy *= -1;
 				}
 
 			}
@@ -855,7 +853,6 @@ bool Game::isracket2colliding(int x, int y, int width, int height, int x1, int y
 
 			}
 			if (y1 != oldy) {
-				vy *= -1;
 			}
 
 		}
